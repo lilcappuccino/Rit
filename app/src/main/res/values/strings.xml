@@ -1,3 +1,5 @@
 <resources>
 	<string name="app_name">ReadIt</string>
+	<string name="internet_connection">No Internet connection..</string>
+	<string name="toolbar_title">Read.IT</string>
 </resources>

@@ -5,8 +5,20 @@
 		android:layout_height="match_parent"
 		android:orientation="vertical"
 		>
+	<TextView
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:layout_gravity="center"
+			android:layout_margin="16dp"
+			android:text="@string/toolbar_title"
+			android:textSize="24sp"
+			android:textStyle="bold"
+			/>
+	<View
+			style="@style/ReadIT.Separator.Horizontal"
+			/>
 	<LinearLayout
-			android:id="@+id/articles_internet_connection"
+			android:id="@+id/activity.articles_internet_connection"
 			android:layout_width="match_parent"
 			android:layout_height="30dp"
 			android:background="#B71C1C"
@@ -15,12 +27,12 @@
 				android:layout_width="fill_parent"
 				android:layout_height="fill_parent"
 				android:gravity="center"
-				android:text="No Internet connection.."
+				android:text="@string/internet_connection"
 				android:textColor="#FFFF"
 				/>
 	</LinearLayout>
 	<android.support.v7.widget.RecyclerView
-			android:id="@+id/activity.main_recycle.view"
+			android:id="@+id/activity.article_recycle.view"
 			android:layout_width="match_parent"
 			android:layout_height="wrap_content"
 			/>

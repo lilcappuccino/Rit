@@ -4,12 +4,10 @@ import dagger.Module;
 import dagger.Provides;
 import rx.subscriptions.CompositeSubscription;
 import v77archenko.dewill.readit.api.NewsApi;
-import v77archenko.dewill.readit.models.Article;
 import v77archenko.dewill.readit.screens.articles.ArticleActivity;
 import v77archenko.dewill.readit.screens.articles.core.ArticleModel;
-import v77archenko.dewill.readit.screens.articles.core.ArticlePresenter;
-import v77archenko.dewill.readit.screens.articles.core.ArticleView;
-import v77archenko.dewill.readit.screens.splash.dagger.SplashScope;
+import v77archenko.dewill.readit.screens.articles.core.ArticlePresenterImpl;
+import v77archenko.dewill.readit.screens.articles.core.ArticleViewImpl;
 import v77archenko.dewill.readit.utils.RxSchedulers;
 
 /**
@@ -26,15 +24,15 @@ import v77archenko.dewill.readit.utils.RxSchedulers;
 
 	@Provides
 	@ArticleScope
-	public ArticleView provideArticleView(ArticleActivity context) {
-		return new ArticleView(context);
+	public ArticleViewImpl provideArticleView(ArticleActivity context) {
+		return new ArticleViewImpl(context);
 	}
 
 	@Provides
 	@ArticleScope
-	public ArticlePresenter providePresenter(ArticleView view, ArticleModel model,
+	public ArticlePresenterImpl providePresenter(ArticleViewImpl view, ArticleModel model,
 			RxSchedulers rxSchedulers) {
 		CompositeSubscription subscription = new CompositeSubscription();
-		return new ArticlePresenter(view, subscription, model, rxSchedulers);
+		return new ArticlePresenterImpl(view, subscription, model, rxSchedulers);
 	}
 }

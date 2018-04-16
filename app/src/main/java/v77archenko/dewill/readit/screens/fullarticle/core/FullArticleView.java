@@ -35,6 +35,7 @@ public class FullArticleView {
 	@BindView(R.id.activity_full_article_date) TextView date;
 	@BindView(R.id.activity_full_article_description) TextView description;
 	@BindView(R.id.activity_full_article_img) ImageView image;
+	@BindView(R.id.activity_full_article_arrow_back) ImageView backBtn;
 	private String url;
 
 	public FullArticleView(FullArticleActivity context, Article article) {
@@ -54,6 +55,10 @@ public class FullArticleView {
 				TextUtils.isEmpty(article.getDescription()) ? "no description" : article.getDescription());
 		url = article.getUrl();
 		Log.i(Tag.ARTICLE_VIEW, url);
+
+		backBtn.setOnClickListener(view -> {
+			context.onClickBackBtn();
+		});
 	}
 
 	public View constructView() {
@@ -67,7 +72,7 @@ public class FullArticleView {
 
 		WebView wv = new WebView(view.getContext());
 		wv.getSettings().setJavaScriptEnabled(true);
-		//wv.loadUrl(url);
+		wv.loadUrl(url);
 		wv.setWebViewClient(new WebViewClient() {
 			@Override
 			public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -84,6 +89,10 @@ public class FullArticleView {
 				dialog.dismiss();
 			}
 		});
-		alert.show();
+		//alert.create();
+		AlertDialog alertDialog = alert.create();
+		alertDialog.getWindow().getAttributes().windowAnimations = R.style.DialogTheme;
+		alertDialog.show();
 	}
 }
+

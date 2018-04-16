@@ -6,6 +6,7 @@ import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 import v77archenko.dewill.readit.models.Article;
+import v77archenko.dewill.readit.screens.articles.ArticleActivity;
 import v77archenko.dewill.readit.screens.fullarticle.core.FullArticleView;
 import v77archenko.dewill.readit.screens.fullarticle.dagger.DaggerFullArticleComponent;
 import v77archenko.dewill.readit.screens.fullarticle.dagger.FullArticleModule;
@@ -27,5 +28,9 @@ public class FullArticleActivity extends AppCompatActivity {
 				.inject(this);
 
 		setContentView(view.constructView());
+	}
+
+	public void onClickBackBtn() {
+		startActivity(new Intent(this, ArticleActivity.class));
 	}
 }

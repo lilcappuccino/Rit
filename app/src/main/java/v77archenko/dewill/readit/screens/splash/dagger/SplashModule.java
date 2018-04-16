@@ -6,9 +6,8 @@ import rx.subscriptions.CompositeSubscription;
 import v77archenko.dewill.readit.api.NewsApi;
 import v77archenko.dewill.readit.screens.splash.SplashScreenActivity;
 import v77archenko.dewill.readit.screens.splash.core.SplashModel;
-import v77archenko.dewill.readit.screens.splash.core.SplashPresenter;
-import v77archenko.dewill.readit.screens.splash.core.SplashView;
-import v77archenko.dewill.readit.utils.AppRxSchedulers;
+import v77archenko.dewill.readit.screens.splash.core.SplashPresenterImpl;
+import v77archenko.dewill.readit.screens.splash.core.SplashViewImpl;
 import v77archenko.dewill.readit.utils.RxSchedulers;
 
 /**
@@ -25,15 +24,15 @@ import v77archenko.dewill.readit.utils.RxSchedulers;
 
 	@SplashScope
 	@Provides
-	public SplashView provideSplashView(SplashScreenActivity context) {
-		return new SplashView(context);
+	public SplashViewImpl provideSplashView(SplashScreenActivity context) {
+		return new SplashViewImpl(context);
 	}
 
 	@SplashScope
 	@Provides
-	public SplashPresenter provideSplashPresenter(SplashModel model, RxSchedulers rxSchedulers,
-			SplashView view) {
+	public SplashPresenterImpl provideSplashPresenter(SplashModel model, RxSchedulers rxSchedulers,
+			SplashViewImpl view) {
 		CompositeSubscription subscription = new CompositeSubscription();
-		return new SplashPresenter(model, rxSchedulers, subscription, view);
+		return new SplashPresenterImpl(model, rxSchedulers, subscription, view);
 	}
 }

@@ -10,8 +10,8 @@ import javax.inject.Inject;
 import v77archenko.dewill.readit.RitApp;
 
 import v77archenko.dewill.readit.models.Article;
-import v77archenko.dewill.readit.screens.articles.core.ArticlePresenter;
-import v77archenko.dewill.readit.screens.articles.core.ArticleView;
+import v77archenko.dewill.readit.screens.articles.core.ArticlePresenterImpl;
+import v77archenko.dewill.readit.screens.articles.core.ArticleViewImpl;
 import v77archenko.dewill.readit.screens.articles.dagger.ArticleContextModule;
 
 import v77archenko.dewill.readit.screens.articles.dagger.DaggerArticleComponent;
@@ -22,8 +22,8 @@ import v77archenko.dewill.readit.screens.fullarticle.FullArticleActivity;
  */
 
 public class ArticleActivity extends AppCompatActivity {
-	@Inject ArticleView view;
-	@Inject ArticlePresenter presenter;
+	@Inject ArticleViewImpl view;
+	@Inject ArticlePresenterImpl presenter;
 
 	@Override
 	protected void onDestroy() {

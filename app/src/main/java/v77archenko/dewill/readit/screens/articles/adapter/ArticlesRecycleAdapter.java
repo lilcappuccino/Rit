@@ -29,7 +29,7 @@ public class ArticlesRecycleAdapter
 	private final PublishSubject<Integer> itemClicks = PublishSubject.create();
 
 	public void swapAdapter(ArticlesResponse articles) {
-		if(response.getArticles() !=null){
+		if (response.getArticles() != null) {
 			response.getArticles().clear();
 		}
 		response.setArticles(articles.getArticles());
@@ -86,8 +86,8 @@ public class ArticlesRecycleAdapter
 			stringUrl = article.getUrl();
 			stringImgUrl = article.getUrlToImage();
 			title.setText(TextUtils.isEmpty(article.getTitle()) ? "missing title" : article.getTitle());
-			//	source.setText(TextUtils.isEmpty(article.ge) ? "missing title"
-			//		: article.getSource().getName());
+			source.setText(
+					TextUtils.isEmpty(article.getSource().getName()) ? "" : article.getSource().getName());
 			if (stringImgUrl != null) Picasso.get().load(stringImgUrl).into(imageView);
 		}
 	}

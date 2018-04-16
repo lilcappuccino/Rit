@@ -7,9 +7,8 @@ import android.support.v7.app.AppCompatActivity;
 import javax.inject.Inject;
 import v77archenko.dewill.readit.RitApp;
 import v77archenko.dewill.readit.screens.articles.ArticleActivity;
-import v77archenko.dewill.readit.screens.splash.core.SplashModel;
-import v77archenko.dewill.readit.screens.splash.core.SplashPresenter;
-import v77archenko.dewill.readit.screens.splash.core.SplashView;
+import v77archenko.dewill.readit.screens.splash.core.SplashPresenterImpl;
+import v77archenko.dewill.readit.screens.splash.core.SplashViewImpl;
 import v77archenko.dewill.readit.screens.splash.dagger.DaggerSplashComponent;
 import v77archenko.dewill.readit.screens.splash.dagger.SplashContextModule;
 
@@ -18,8 +17,8 @@ import v77archenko.dewill.readit.screens.splash.dagger.SplashContextModule;
  */
 
 public class SplashScreenActivity extends AppCompatActivity {
-	@Inject SplashView view;
-	@Inject SplashPresenter presenter;
+	@Inject SplashViewImpl view;
+	@Inject SplashPresenterImpl presenter;
 
 	@Override
 	protected void onCreate(@Nullable Bundle savedInstanceState) {

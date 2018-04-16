@@ -64,7 +64,7 @@ dependencies {
   annotationProcessor "com.google.dagger:dagger-compiler:2.9"
   provided 'javax.annotation:jsr250-api:1.0'
   //Others
-  compile "com.jakewharton:butterknife:$butterVer"
+  implementation "com.jakewharton:butterknife:$butterVer"
   annotationProcessor "com.jakewharton:butterknife-compiler:$butterVer"
   implementation 'com.github.GrenderG:Toasty:1.2.8'
   implementation 'com.squareup.picasso:picasso:2.71828'
